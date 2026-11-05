@@ -23,8 +23,13 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Binding binding(Queue cola, TopicExchange arepasExchange) {
+    public Binding bindingCreado(Queue cola, TopicExchange arepasExchange) {
         return BindingBuilder.bind(cola).to(arepasExchange).with("pedido.creado");
+    }
+
+    @Bean
+    public Binding bindingListo(Queue cola, TopicExchange arepasExchange) {
+        return BindingBuilder.bind(cola).to(arepasExchange).with("pedido.listo");
     }
 
     @Bean
